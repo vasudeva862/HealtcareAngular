@@ -1,0 +1,31 @@
+h1{
+
+    text-align: center;
+
+}
+
+th, td {
+
+    border-bottom: 1px solid #ddd;
+
+    padding: 10px;
+
+    padding-left: 20px;
+
+  }
+
+th{
+
+    margin-right: 10px;
+
+    font-size: larger;
+
+}
+
+table{
+
+    width: 100%;
+
+    text-align: center;
+
+}

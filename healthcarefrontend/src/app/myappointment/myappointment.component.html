@@ -1,0 +1,41 @@
+
+<h1>All Appointments</h1>
+
+<table>
+    <tr>
+    <th>Appointment ID</th>
+    <th>Diagnostic Centre</th>
+    <th>Test</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Total Cost</th>
+    <th>Update</th>
+    <th>Delete</th>
+</tr>
+<tr *ngFor="let a of appointment|async">
+    <td>{{a.appointmentId}}</td>
+    <!-- <td>{{a.userId}}</td> -->
+    <!-- <input *ngSubmit="getDiagnosticCentreNameFromId(a.appointmentId)"> -->
+    <!-- <template *ngFor="let dc of diagnosticCentre|async">
+            <template ng-if="a.diagnosticCentreId==dc.diagnosticCentreId">
+                <td>{{dc.centreName}}</td>
+            </template>
+        </template> -->
+<!-- <td>{{name}}</td> -->
+<td>{{a.testId}}</td>
+
+<td>{{a.date1}}</td>
+
+<td>{{a.time1}}</td>
+
+<td>{{a.totalCost}}</td>
+
+<td><button (click)="updateAppointment(a.appointmentId)">Update</button></td>
+
+<td><button (click)="deleteAppointment(a.appointmentId)">Delete</button></td>
+
+<!-- <td><button (click)="productDetail(p.prdId)">Details</button></td> -->
+
+</tr>
+
+</table>

@@ -1,0 +1,24 @@
+
+<h1>All Diagnostic Centres</h1>
+
+<table>
+    <tr>
+        <th>Diagnostic Centre ID</th>
+        <th>Diagnostic Centre Name</th>
+        <th>Diagnostic Centre Address</th>
+        <th>Update</th>
+        <th>Delete</th>
+        <th>Details</th>
+    </tr>
+    <tr *ngFor="let d of diagnosticCentre|async">
+        <td>{{d.diagnosticCentreId}}</td>
+        <td>{{d.centreName}}</td>
+        <td>{{d.centreAddress}}</td>
+        <!-- <td><button (click)="EnterTestsInCentre(d.diagnosticCentreId)">Enter Tests</button></td> -->
+        <td><button (click)="addTestIntoExistingDiagnosticCentre(d.diagnosticCentreId)">Add Test</button></td>
+        <td><button (click)="updateDiagnosticCentre(d.diagnosticCentreId)">Update</button></td>
+        <td><button (click)="deleteDiagnosticCentre(d.diagnosticCentreId)">Delete</button></td>
+        <td><button (click)="diagnosticCentreDetail(d.diagnosticCentreId)">Details</button></td>
+    </tr>
+</table>
+

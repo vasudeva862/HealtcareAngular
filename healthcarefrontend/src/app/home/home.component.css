@@ -1,0 +1,110 @@
+/*a{
+
+    margin-left: 1350px;
+
+    color: #da48d0;;
+
+    font-size: 20px;
+
+    font-style: oblique;
+
+}
+
+a:hover{
+
+    color: #70bde9;
+    font-style: inherit;
+
+}
+
+
+
+
+b{
+    font-style: oblique;
+    font-family:cursive;
+    color:hsla(hue, saturation, lightness, alpha);
+   /* background-image: url("https://www.google.com/imgres?imgurl=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fdoctor-stethoscope-hand-hospital-background-gown-94227568.jpg&imgrefurl=https%3A%2F%2Fwww.dreamstime.com%2Fphotos-images%2Fhospital-background.html&tbnid=oOrRU9e3wfFm_M&vet=12ahUKEwjeuMCVjuT7AhXK_TgGHZTxA5wQMygFegUIARDIAQ..i&docid=EHK2uCyfFhmdTM&w=1600&h=704&q=bg%20image%20for%20health%20care%20portal&ved=2ahUKEwjeuMCVjuT7AhXK_TgGHZTxA5wQMygFegUIARDIAQ");
+}
+.box{
+   /* background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fdoctor-stethoscope-hand-hospital-background-gown-94227568.jpg&imgrefurl=https%3A%2F%2Fwww.dreamstime.com%2Fphotos-images%2Fhospital-background.html&tbnid=oOrRU9e3wfFm_M&vet=12ahUKEwjeuMCVjuT7AhXK_TgGHZTxA5wQMygFegUIARDIAQ..i&docid=EHK2uCyfFhmdTM&w=1600&h=704&q=bg%20image%20for%20health%20care%20portal&ved=2ahUKEwjeuMCVjuT7AhXK_TgGHZTxA5wQMygFegUIARDIAQ');
+    padding:10px;
+    margin: 10px;
+}
+h3{
+    text-align: center;
+    font-style:italic;
+}
+body{
+    border-style: dashed;
+    background-color: #70bde9;
+    background-image: url('/healthcarefrontend/images1.jpg');
+}
+
+
+h2{
+    text-align: center;
+}*/
+*{
+    margin:0;
+    padding:0;
+
+}
+.wrapper{
+    width:1170px;
+    margin:auto;
+
+}
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('/assets/bg12.jpg');
+    height:90vh;
+    -webkit-background-size:cover;
+    background-size:cover;
+    background-position: center-center;
+    position:realative;
+    
+}
+.nav-area li{
+    display:inline-block;
+}
+.nav-area li a{
+    color:aqua;
+    text-decoration: none;
+    padding:5px 20px;
+    font-family: poppins;
+    font-size:16px;
+
+}
+.nav-area li a:hover{
+    background: #fff;
+    color:#333
+}
+.logo img{
+    width:100px;
+    float:left;
+    height:auto;
+
+}
+.welcome-text{
+    position:absolute;
+    width:600px;
+    height:300px;
+    margin:20% 30%;
+    text-align:center;
+
+}
+.welcome-text h3{
+    text-align: center;
+    color:rgb(123, 226, 236);
+    text-transform: uppercase;
+    font-size:60px;
+}
+.welcome-text a{
+    border:1px solid rgb(149, 164, 212);
+    padding:10px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size:14px;
+    margin-top:20px;
+    display:inline-block;
+}

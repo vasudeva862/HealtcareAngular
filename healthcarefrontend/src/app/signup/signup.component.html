@@ -1,0 +1,82 @@
+<section>
+    <form class="fromInput" [formInput]="signupform">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content align-items-center h-100">
+                <div class="col">
+                    <div class="card card-registration my-4">
+                        <div class="row g-0">
+                            <div class="col-xl-6 d-done d-xl-block">
+                                <img src="/healthcarefrontend/images1.jpg" 
+                                alt="sample-photo" class="img-fluid"
+                                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem" />
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card-body p-md-5 text-black">
+                                    <h3 class="mb-5 text-uppercase">User Registration Form</h3>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+
+                                                <input placeholder="First Name" required formControlName="FirstName" type="text" id="form3Example1m" class="form-control form-control-1g"/>
+                                                <small *ngIf="signupform.controls['FirstName'].touched && signupform.hasError('required','FirstName')" class="text-danger">"FirstName is required</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <input type="text" placeholder="Last Name" required formControlName="LastName" id="form3Example1n" class="form-control form-control-1g"/>
+                                                    <small *ngIf="signupform.controls['FirstName'].touched && signupform.hasError('required','FirstName')" class="text-danger">"FirstName is required</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-outline">
+                                                <input placeholder="Email Address" required formControlName="Email" type="text" id="form3Example1m1" class="form-control form-control-1g"/>
+                                                <small *ngIf="signupform.controls['Email'].touched && signupform.hasError('required','Email')" class="text-danger">"Email is required</small>
+                                                
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="fom-outline">
+                                                <input placeholder="Mobile Number" required formControlName="Mobile" type="text" id="form3Example1m1" class="form-control form-control-1g"/>
+                                                <small *ngIf="signupform.controls['Mobile'].touched && signupform.hasError('required','Mobile')" class="text-danger">"Mobile is required</small>
+                                                
+
+
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-check-label" for="accessibility-example"><b>Date of Birth</b></label>
+                                        <input placeholder="Select date" required formControlName="DateOfBirth" type="date" id="accessibility-example" class="form-control form-control-1g"/>
+                                        <small *ngIf="signupform.controls['DateOfBirth'].touched && signupform.hasError('required','DateOfBirth')" class="text-danger">"DateOfBirth is required</small>
+                                                
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="form3Example9" required formControlName="Role" placeholder="Role" class="form-control form-control-1g"/>
+                                        <small *ngIf="signupform.controls['Role'].touched && signupform.hasError('required','Role')" class="text-danger">"Role is required</small>
+                                    
+
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="Password" id="form3Example90" required formControlName="Password" placeholder="Password" class="form-control form-control-1g"/>
+                                        <small *ngIf="signupform.controls['Password'].touched && signupform.hasError('required','Password')" class="text-danger">"Password is required</small>
+                                    
+                                    </div>
+                                    <div class="d-flex justify-content-end pt-3">
+                                        <button type="button" (click)="reset()" class="btn btn-light btn-1g">Reset all</button>
+                                        <button type="button" class="btn-btn-warning btn-1g ms-2" (click)="validateSignUp()">Submit form</button>
+                                    </div><br><br>
+                                    <button class="btn btn-light btn-1g" type="button" (click)="navigateToLogin()">Login</button>
+                                    </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+           
+</form>
+    </section>

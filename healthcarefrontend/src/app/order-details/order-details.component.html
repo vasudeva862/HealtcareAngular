@@ -1,0 +1,106 @@
+<section style="padding : 10px;">
+    <div style="background-color: rgb(212,251,250);">
+        <nav class="navbar navbar-light bg-dark">
+            <div class="container-fluid">
+                <h1 style="color: white;">Order Details</h1>
+                <div class="d-flex">
+                    <button type="button" data-toggle="model" (click)="addButton()" data-target="#exampleModel" class="btn btn-success">Add Orders</button>
+
+                </div>
+            </div>
+        </nav>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">RecordId</th>
+                    <th scope="col">Lab Name</th>
+                    <th scope="col">User First Name</th>
+                    <th scope="col">User Last Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Ordered Date</th>
+                    <th scope="col">Doctor Prescription</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of orderData">
+                    <td>{{row.recordId}}</td>
+                    <td>{{row.labName}}</td>
+                    <td>{{row.userFirstName}}</td>
+                    <td>{{row.userLastName}}</td>
+                    <td>{{row.orderedDate}}</td>
+                    <td>{{row.doctorPrescription}}</td>
+                    <td>
+                        <button type="button" data-toggle="modal" data-target="#exampleModal" (click)="editOrder(row)" class="btn btn-info">Edit</button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--MOdal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" Category="dialog" aria-labellebdy="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" Category="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+                        <button type="button" id='cancel' (click)="clearForm()" class="close" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="orderDetailsForm">
+                            <div class="form-group">
+                                <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelm"><b>Lab Name</b></label>
+                                    <input placeholder="Lab Name" required formControlName="LabName" type="text" id="form3examplelm" class="form-control-lg" />
+                                    <small *ngIf="orderDetailsForm.controls['LabName'].touched && orderDetailsForm.hasError('required','LabName')" class="text-danger">*LabName is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelm"><b>User First Name</b></label>
+                                    <input type="text" placeholder="User First Name" required formControlName="User FirstName" id="form3examplelm" class="form-control-lg" />
+                                    <small *ngIf="orderDetailsForm.controls['UserFirstName'].touched && orderDetailsForm.hasError('required','UserFirstName')" class="text-danger">*UserFirstName is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelm"><b>Status</b></label>
+                                    <input placeholder="Status" required formControlName="Status" type="text" id="form3examplelm" class="form-control-lg" />
+                                    <small *ngIf="orderDetailsForm.controls['Status'].touched && orderDetailsForm.hasError('required','Status')" class="text-danger">*UserLastName is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelm"><b>User Last Name</b></label>
+                                    <input placeholder="User Last Name" required formControlName="User LastName" type="text" id="form3examplelm" class="form-control-lg" />
+                                    <small *ngIf="orderDetailsForm.controls['UserLastName'].touched && orderDetailsForm.hasError('required','UserLastName')" class="text-danger">*Status is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelm"><b>Ordered Date</b></label>
+                                    <input placeholder="yyyy-mm-dd" required formControlName="OrderedDate" type="text" id="form3examplelm" class="form-control-lg" />
+                                    <small *ngIf="orderDetailsForm.controls['OrderedDate'].touched && orderDetailsForm.hasError('required','OrderedDate')" class="text-danger">*OrderedDate is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label"><b>Category</b></label>
+                                    <select class="form-select" formControlName="Category">
+                                        <option value="" disabled selected>Select Category</option>
+                                        <option *ngFor="let category of categories" value="{{category.diagnosisName}}"></option>
+                                    </select>
+                                    <small *ngIf="orderDetailsForm.controls['Category'].touched && orderDetailsForm.hasError('required','Category')" class="text-danger">*Category is Required</small>
+                                    </div>
+                                    <div class="form-outline">
+                                        <label class="form-check-label" for="formExamle90"><b>Doctor Prescription</b></label>
+                                        <input type="text" id="form3example90" required formControlName="DoctorPrescription" placeholder="DoctorPrescription" class="form-control form-control-lg" />
+                                        <small *ngIf="orderDetailsForm.controls['DoctorPrescription'].touched && orderDetailsForm.hasError('required','DoctorPrescription')" class="text-danger">*DoctorPrescription is Required</small>
+                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" (click)="clearForm()" class="btn btn-secondary">Clear</button>
+                            <button *ngIf="isEditClicked" (click)="addOrders()" type="button" class="btn btn-primary"></button>
+                            <button *ngIf="isEditClicked" (click)="updateOrders()" type="button" class="btn btn-primary">Update</button>
+                        </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

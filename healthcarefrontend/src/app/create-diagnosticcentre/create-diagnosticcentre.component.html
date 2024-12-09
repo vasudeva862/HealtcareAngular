@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+    <ul class="navbar-nav" style="margin-left:auto;margin-right: auto;">
+
+      <li class="nav-item "><a (click)="goHome()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success">Home</a></li>
+
+      <li class="nav-item "><a (click)="goAddAdmin()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success" role="button">Add New Admin</a></li>
+
+      
+
+      <li class="nav-item "><a (click)="goAddDiagonasticCentre()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success" role="button">New Diagnostic Centre</a></li>
+          
+          <li class="nav-item "><a (click)="goCreateAppointment()" routerLinkActive="active" class="nav-link"
+
+            class="btn btn-success" role="button">Create Appointment</a></li>
+          
+          <li class="nav-item "><a (click)="showAllTests()" routerLinkActive="active" class="nav-link"
+
+            class="btn btn-success" role="button">All Tests</a></li>
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;&nbsp;
+
+                    <li class="nav-item "><a (click)="goLogout()" routerLinkActive="active" class="nav-link"
+
+                      class="btn btn-warning">logout</a></li>
+  
+        <!-- <li class="nav-item "><a (click)="goAddTest()" routerLinkActive="active" class="nav-link"
+  
+            class="btn btn-primary active" role="button">New Test</a></li> -->
+  
+      </ul>
+  
+    </nav>
+  
+
+
+<div class="container">
+
+    <h1>New Diagnostic Centre Form</h1>
+
+<div [hidden]="submitted" style="width: 600px;">
+
+    <form (ngSubmit)="onSubmit()" #dform="ngForm">
+
+        <!-- <div class="form-group">
+
+            <label for="diagnosticCentreId" placeholder="id">Enter Diagnostic Centre Id</label>
+
+            <input class="form-control" id="id" required [(ngModel)]="diagnosticCentre.diagnosticCentreId" name="diagnosticCentreId">
+
+        </div> -->
+        <div class="form-group">
+
+            <label for="diagnosticCentreName">Enter Diagnostic Centre Name</label>
+
+            <input class="form-control" placeholder="Diagnostic Centre Name" id="name" required [(ngModel)]="diagnosticCentre.centreName" name="centreName" type="text" ngModel pattern="[a-zA-Z ]*" required minlength="4" #name="ngModel">
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+            <div ng-show="dform.name.$invalid">
+
+                Diagnostic Centre Name must not contain numbers or special characters.
+
+            </div>
+
+            <div *ngIf="name.errors?.['required']">
+
+                Diagnostic Centre Name is required.
+
+            </div>
+
+            <div *ngIf="name.errors?.['minlength']">
+
+                Diagnostic Centre Name must be at least 4 characters long.
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="form-group">
+
+    <label for="diagnosticCentreAddress" >Enter Diagnostic Centre Address</label>
+
+    <input class="form-control" placeholder="Diagnostic Centre Address" id="name" required minlength="4" required [(ngModel)]="diagnosticCentre.centreAddress" name="diagnosticCentreAddress" #name1="ngModel">
+
+    <div *ngIf="name1.invalid && (name1.dirty || name1.touched)" class="alert alert-danger">
+
+        <div *ngIf="name1.errors?.['required']">
+
+            Diagnostic Centre Address is required.
+
+        </div>
+
+        <div *ngIf="name1.errors?.['minlength']">
+
+            Diagnostic Centre Address must be at least 4 characters long.
+
+        </div>
+
+    </div>
+
+</div>
+
+<button [disabled]="dform.invalid" type="submit" class="btn-success" >Submit</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+<div [hidden]="!submitted">
+
+<h4>Diagnostic Centre added Successfully!!</h4>
+
+</div>

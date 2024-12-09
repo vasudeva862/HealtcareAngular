@@ -1,0 +1,107 @@
+
+<section style="padding : 10px;">
+    <div style="background-color: rgb(212,251,250);">
+        <nav class="navbar navbar-light bg-dark">
+            <div class="container-fluid">
+                <h1 style="color: white;">Order Details</h1>
+                <div class="d-flex">
+                    <button type="button" (click)="addButton()" data-toggle="modal"  data-target="#exampleModel" class="btn btn-success">Add User</button>
+
+                </div>
+            </div>
+        </nav>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">RecordId</th>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Emailaddress</th>
+                    <th scope="col">MobileNumber</th>
+                    <th scope="col">DateOfBirth</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of userDate; let i = 'index+1'" [attr.data+index] +"i">
+                    <td>{{row.recordId}}</td>
+                    <td>{{row.firstname}}</td>
+                    <td>{{row.lastname}}</td>
+                    <td>{{row.emailaddress}}</td>
+                    <td>{{row.mobileNumber}}</td>
+                    <td>{{row.dateOfBirth|date: 'dd-MM-yyyy'}}</td>
+                    <td>{{row.role}}</td>
+                    <td>{{row.password}}</td>
+                    <td>
+                        <button type="button" data-toggle="modal" data-target="#exampleModal" (click)="editOrder(row)" class="btn btn-info">Edit</button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--MOdal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" Category="dialog" aria-labellebdy="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">User Registration</h5>
+                        <button type="button" id='cancel' (click)="clearForm()" class="close" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [fromGroup]="UserDetailsForm">
+                            <div class="form-group">
+                                <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelm"><b>First Name</b></label>
+                                    <input placeholder="First Name" required formControlName="FirstName" type="text" id="form3examplelm" class="form-control form-control-lg" />
+                                    <small *ngIf="UserDetailsForm.controls['FirstName'].touched && UserDetailsForm.hasError('required','FirstName')" class="text-danger">*FirstName is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelm"><b>Last Name</b></label>
+                                    <input type="text" placeholder="Last Name" required formControlName="LastName" id="form3examplelm" class="form-control form-control-lg" />
+                                    <small *ngIf="UserDetailsForm.controls['LastName'].touched && UserDetailsForm.hasError('required','LastName')" class="text-danger">*LastName is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelnl"><b>Email Address</b></label>
+                                    <input placeholder="Email Address" required formControlName="Email" type="text" id="form3examplelm" class="from-control form-control-lg" />
+                                    <small *ngIf="UserDetailsForm.controls['Email'].touched && UserDetailsForm.hasError('required','Email')" class="text-danger">*Email is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelnl"><b>Mobile Number</b></label>
+                                    <input placeholder="Mobile Number" required formControlName="Mobile" type="text" id="form3examplelnl" class="form-control form-control-lg" />
+                                    <small *ngIf="UserDetailsForm.controls['Mobile'].touched && UserDetailsForm.hasError('required','Mobile')" class="text-danger">*Mobile is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label" for="formExamlelm"><b>Date Of Birth</b></label>
+                                    <input placeholder="yyyy-mm-dd" required formControlName="DateOfBirth" type="text" id="accessibility-example" class="form-control form-control-lg" />
+                                    <small *ngIf="UserDetailsForm.controls['DateOfBirth'].touched && UserDetailsForm.hasError('required','DateOfBirth')" class="text-danger">*DateOfBirth is Required</small>
+                                 </div>
+                                 <div class="form-outline">
+                                    <label class="form-check-label" for="formExamle9"><b>Role</b></label>
+                                    <input type="text" id="form3example90" required formControlName="Role" placeholder="Role" class="form-control form-control-lg" />
+                                    <small *ngIf="UserDetailsForm.controls['Role'].touched && UserDetailsForm.hasError('required','Role')" class="text-danger">*Role is Required</small>
+                                </div>
+                                <div class="form-outline">
+                                    <label class="form-check-label" for="formExamle9"><b>Password</b></label>
+                                    <input type="Password" id="form3example90" required formControlName="Password" placeholder="Password" class="form-control form-control-lg" />
+                                    <small *ngIf="UserDetailsForm.controls['Password'].touched && UserDetailsForm.hasError('required','Password')" class="text-danger">*Password is Required</small>
+                                </div>
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" (click)="clearForm()" class="btn btn-secondary">Clear</button>
+                            <button *ngIf="isEditClicked" (click)="addUsers()" type="button" class="btn btn-primary">Add</button>
+                            <button *ngIf="isEditClicked" (click)="updateUsers()" type="button" class="btn btn-primary">Update</button>
+                        </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

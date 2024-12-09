@@ -1,0 +1,76 @@
+<h1>Diagnostic Centre Details</h1>
+
+
+
+<div style="width: 600px;" id="mainDiv">
+
+    <form>
+
+        <h2>Diagnostic Centre: </h2><br>
+
+                <table>
+
+                    <tr>
+
+                        <th>Diagnostic Centre Id</th>
+
+                        <th>Centre Name</th>
+
+                        <th>Centre Address</th>
+
+                    </tr>
+
+                <tr>
+
+                    <td>{{diagnosticCentre.diagnosticCentreId}}</td>
+
+                    <td>{{diagnosticCentre.centreName}}</td>
+
+                    <td>{{diagnosticCentre.centreAddress}}</td>
+
+                </tr>
+
+                </table>
+
+        <div class="form-group">
+
+            <h2>Tests Available: </h2><br>
+
+                <table>
+
+                    <tr>
+                        <th>Test ID</th>
+
+                        <th>Test Name</th>
+
+                        <th>Test Details</th>
+
+                        <th>Test Cost</th>
+
+                        <th>Delete</th>
+
+                    </tr>
+
+                <tr *ngFor="let test of tests">
+
+                    <td>{{test.testId}}</td>
+
+                    <td>{{test.testName}}</td>
+
+                    <td>{{test.testDetails}}</td>
+
+                    <td>{{test.testCost}}</td>
+
+                    <td><button (click)="deleteTest(test.testId)">Delete</button></td>
+
+                </tr>
+
+                </table>
+
+        </div>
+
+        <button type="submit" class="btn-success" >Submit</button>
+
+    </form>
+
+</div>

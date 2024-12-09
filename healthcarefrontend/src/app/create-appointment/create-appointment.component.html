@@ -1,0 +1,208 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+  <ul class="navbar-nav" style="margin-left:auto;margin-right: auto;">
+
+    <li class="nav-item "><a (click)="goHome()" routerLinkActive="active" class="nav-link"
+
+        class="btn btn-success">Home</a></li>
+
+    <li class="nav-item "><a (click)="goAddAdmin()" routerLinkActive="active" class="nav-link"
+
+        class="btn btn-success" role="button">Add New Admin</a></li>
+
+    
+
+    <li class="nav-item "><a (click)="goAddDiagonasticCentre()" routerLinkActive="active" class="nav-link"
+
+        class="btn btn-success" role="button">New Diagnostic Centre</a></li>
+        
+        <li class="nav-item "><a (click)="goCreateAppointment()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success" role="button">Create Appointment</a></li>
+        
+        <li class="nav-item "><a (click)="showAllTests()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success" role="button">All Tests</a></li>
+          
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;<br>
+                  &nbsp;&nbsp;&nbsp;
+
+                  <li class="nav-item "><a (click)="goLogout()" routerLinkActive="active" class="nav-link"
+
+                    class="btn btn-warning">logout</a></li>
+
+      <!-- ---<li class="nav-item "><a (click)="goAddTest()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-primary active" role="button">New Test</a></li> ------>
+
+    </ul>
+
+  </nav>
+<h1>New Appointment Form</h1>
+
+
+
+<div [hidden]="submitted" style="width: 600px;">
+
+    <form (ngSubmit)="onSubmit()" #appointmentform="ngForm">
+
+        <div>
+
+            <label for="diagnosticCentreName">Select a Diagnostic Centre</label>
+
+            <select id="diagnosticCentreName" [ngModel]="appointment.diagnosticCentreId" (ngModelChange)="onChangeDiagnosticCentre($event)"
+
+                  name="diagnosticCentreName" class="form-control" required #name2="ngModel">
+
+            <option *ngFor="let diagnosticCentre of diagnosticCentres" ngValue={{diagnosticCentre.diagnosticCentreId}}>{{diagnosticCentre.centreName}}
+
+            </option>
+
+          </select>
+
+          <div *ngIf="name2.invalid && (name2.dirty || name2.touched)" class="alert alert-danger">
+
+            <div *ngIf="name2.errors?.['required']">
+
+              Diagnostic Centre is required.
+
+            </div>
+
+        </div>
+
+        </div>
+        <div>
+
+            <label for="testId">Select a Test</label>
+
+            <select id="testId" [ngModel]="appointment.testId" (ngModelChange)="onChangeTest($event)"
+
+                  name="testId" class="form-control" required #name1="ngModel">
+
+            <option *ngFor="let test of tests" ngValue={{test.testId}}>{{test.testName}}
+
+            </option>
+
+          </select>
+
+          <div *ngIf="name1.invalid && (name1.dirty || name1.touched)" class="alert alert-danger">
+
+            <div *ngIf="name1.errors?.['required']">
+
+              Diagnostic Test is required.
+
+            </div>
+
+        </div>
+
+        </div>
+        <div class="form-group">
+
+            <label for="date">Enter Date</label>
+
+            <input class="form-control" placeholder="dd/MM/YYYY" id="id" required [(ngModel)]="appointment.date1" name="date1" #name3="ngModel" ngModel pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" >
+
+            <div *ngIf="name3.invalid && (name3.dirty || name3.touched)" class="alert alert-danger">
+
+              <div ng-show="appointmentform.name3.$invalid">
+
+                  Date must be in correct format
+
+              </div>
+
+              <div *ngIf="name3.errors?.['required']">
+
+                  Date is required.
+
+              </div>
+
+          </div>
+
+          </div>
+
+        <div>
+
+            <label for="time" >Select a Time</label>
+
+            <select id="time" [(ngModel)]="appointment.time1"
+            name="time" class="form-control" required #name="ngModel">
+            <option value="09:00 AM">09:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="01:00 PM">01:00 PM</option>
+            <option value="02:00 PM">02:00 PM</option>
+            <option value="03:00 PM">03:00 PM</option>
+            <option value="04:00 PM">04:00 PM</option>
+            <option value="05:00 PM">05:00 PM</option>
+            <option value="06:00 PM">06:00 PM</option>
+            <option value="07:00 PM">07:00 PM</option>
+            <option value="08:00 PM">08:00 PM</option>
+            <option value="09:00 PM">09:00 PM</option>
+          </select>
+<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+    <div *ngIf="name3.errors?.['required']">
+
+        Time is required.
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+<h2>Total Cost: {{cost}}/- Only</h2>
+
+<button type="submit" [disabled]="appointmentform.invalid" class="btn-success" >Book An Appointment</button>
+
+</form>
+
+</div>
+
+
+
+<div [hidden]="!submitted">
+
+<h4>Appointment Booked Successfully!!</h4>
+
+</div>
+
+
+
+
+
+
+
+
+<!------<select (change)="onChange($event.target.value)">
+
+  <option *ngFor="let i of devices">{{i}}</option>
+
+</select>
+
+<select [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="sel2">
+
+  <option [value]="i" *ngFor="let i of devices">{{i}}</option>
+
+</select>
+
+{{selectedDevice}}          
+
+<p><select [ngModel]="selectedDeviceObj" (ngModelChange)="onChangeObj($event)" name="sel3">
+
+  <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}}</option>
+
+</select>
+
+
+
+
+
+{{selectedDeviceObj | json}} -->
+

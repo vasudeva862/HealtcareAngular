@@ -1,0 +1,85 @@
+<h1>New Test Form</h1>
+
+
+
+<div [hidden]="submitted" style="width: 600px;">
+
+    <form (ngSubmit)="onSubmit()" #testform="ngForm">
+
+        <div class="form-group">
+
+            <label for="testName" placeholder="Name">Enter Test Name</label>
+
+            <input class="form-control" id="name" [(ngModel)]="test.testName" name="testName" type="text" ngModel pattern="[a-zA-Z ]*" required #name2="ngModel">
+
+            <div *ngIf="name2.invalid && (name2.dirty || name2.touched)" class="alert alert-danger">
+
+                <div ng-show="testform.name2.$invalid">
+
+                    Test Name cannot contain numbers or special characters.
+
+                </div>
+
+                <div *ngIf="name2.errors?.['required']">
+
+                    Test Name is required.
+
+                </div>
+
+            </div>
+
+        </div>
+<div class="form-group">
+            <label for="testDetails" placeholder="Name">Enter Test Details</label>
+            <input class="form-control" id="name" required [(ngModel)]="test.testDetails" name="testDetails" type="text" ngModel pattern="[a-zA-Z ]*" required #name1="ngModel">
+            <div *ngIf="name1.invalid && (name1.dirty || name1.touched)" class="alert alert-danger">
+                <div ng-show="testform.name1.$invalid">
+                    Test Details must not contain numbers or special characters.
+                </div>
+                <div *ngIf="name1.errors?.['required']">
+                    Test Details are required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+<label for="testCost" placeholder="Cost">Enter Test cost</label>
+
+<input class="form-control" id="cost" required [(ngModel)]="test.testCost" name="testCost" type="number" ngModel pattern="[0-9]+.[0-9]" required #name="ngModel">
+
+<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+    <div ng-show="testform.name.$invalid">
+
+        Cost must contain positive numbers.
+
+    </div>
+
+    <div *ngIf="name.errors?.['required']">
+
+        Test Cost is required.
+
+    </div>
+
+</div>
+
+</div>
+
+<button type="submit" [disabled]="testform.invalid" class="btn-success" >Submit</button>
+
+</form>
+
+</div>
+
+
+
+<div [hidden]="!submitted">
+
+<h4>Product added Successfully!!</h4>
+
+</div>
+
+<!-- <br>
+
+<button type="submit" class="btn-success" >Add</button>
+
+<br> --

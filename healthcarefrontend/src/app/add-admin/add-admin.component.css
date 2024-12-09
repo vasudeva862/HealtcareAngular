@@ -1,0 +1,59 @@
+body{
+    background-image:linear-gradient(rgba(66, 79, 86, 0.1),rgba(73, 55, 55, 0.6)), url('/assets/bg14.jpg');
+    height:110vh;
+    -webkit-background-size:cover;
+    background-size:cover;
+    background-position: center-center;
+    position:realative;
+
+}
+
+table,tr{
+
+    border:rgb(93, 58, 45) solid 2px;
+
+    background-color: rgb(181, 154, 154);
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+td{
+
+    border:rgb(255, 0, 140) solid 1px;
+
+    background-color: rgb(86, 180, 180);
+
+}
+
+th{
+
+    border: rgb(136, 214, 76) solid 1px;
+
+    background-color: rgb(122, 211, 233);
+
+}
+
+h1,h2,h3,h4{
+
+    text-align: center;
+
+    align-content: center;
+
+    align-items: center;
+
+    align-self: center;
+
+    font-style: oblique;
+
+}
+
+ul{
+
+    margin-left:auto;
+
+    margin-right: auto;
+
+}

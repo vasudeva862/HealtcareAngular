@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-white">
+
+    <ul class="navbar-nav" style="margin-left:auto;margin-right: auto;">
+
+      <li class="nav-item"><a (click)="goHome()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success">Home</a></li>
+
+      <li class="nav-item "><a (click)="goAddAdmin()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success" role="button">Add New Admin</a></li>
+
+      
+
+      <li class="nav-item "><a (click)="goAddDiagonasticCentre()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success" role="button">New Diagnostic Centre</a></li>
+          
+          <li class="nav-item "><a (click)="showAllTests()" routerLinkActive="active" class="nav-link"
+
+            class="btn btn-success" role="button">All Tests</a></li>
+  
+        <!-- <li class="nav-item "><a (click)="goAddTest()" routerLinkActive="active" class="nav-link"
+  
+            class="btn btn-primary active" role="button">New Test</a></li> -->
+  
+      </ul>
+  
+    </nav>
+  
+
+
+<h1>All Tests</h1>
+
+
+
+<table>
+
+    <tr>
+
+        <th>Test ID</th>
+
+        <th>Test NAME</th>
+
+        <th>Test DETAILS</th>
+
+        <th>Test COST</th>
+
+        <th>Update</th>
+
+        <th>Delete</th>
+
+    </tr>
+
+    <tr *ngFor="let t of test|async">
+
+        <td>{{t.testId}}</td>
+
+        <td>{{t.testName}}</td>
+
+        <td>{{t.testDetails}}</td>
+
+        <td>{{t.testCost}}</td>
+
+        <td><button (click)="updateTest(t.testId)">Update</button></td>
+
+        <td><button (click)="deleteTest(t.testId)">Delete</button></td>
+
+        <!-- <td><button (click)="productDetail(p.prdId)">Details</button></td> -->
+
+    </tr>
+
+</table>

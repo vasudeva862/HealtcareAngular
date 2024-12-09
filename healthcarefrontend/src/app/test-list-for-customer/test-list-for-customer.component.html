@@ -1,0 +1,27 @@
+<h1>Tests Available</h1>
+
+
+
+<table>
+
+    <tr>
+
+        <th>Test NAME</th>
+
+        <th>Test DETAILS</th>
+
+        <th>Test COST</th>
+
+    </tr>
+
+    <tr *ngFor="let t of test|async">
+
+        <td>{{t.testName}}</td>
+
+        <td>{{t.testDetails}}</td>
+
+        <td>{{t.testCost}}</td>
+
+    </tr>
+
+</table>

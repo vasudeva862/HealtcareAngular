@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+  <ul class="navbar-nav" style="margin-left:auto;margin-right: auto;">
+
+    <li class="nav-item "><a (click)="goHome()" routerLinkActive="active" class="nav-link"
+
+        class="btn btn-success">Home</a></li>
+
+    <li class="nav-item "><a (click)="goAddAdmin()" routerLinkActive="active" class="nav-link"
+
+        class="btn btn-success" role="button">Add New Admin</a></li>
+
+  
+
+    <li class="nav-item "><a (click)="goAddDiagonasticCentre()" routerLinkActive="active" class="nav-link"
+
+        class="btn btn-success" role="button">New Diagnostic Centre</a></li>
+        
+        
+        <li class="nav-item "><a (click)="goCreateAppointment()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success" role="button">Create Appointment</a></li>
+        
+        <li class="nav-item "><a (click)="showAllTests()" routerLinkActive="active" class="nav-link"
+
+          class="btn btn-success" role="button">All Tests</a></li>
+          
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;<br>
+                  &nbsp;&nbsp;&nbsp;
+
+                  <li class="nav-item "><a (click)="goLogout()" routerLinkActive="active" class="nav-link"
+
+                    class="btn btn-warning">logout</a></li>
+  </ul>
+</nav>
+                    <body>
+                <div class="col-sm-4" align="center" style="margin-left: 500px;">
+  
+                   <h5>All Admins</h5>
+  
+                      <table width="60%">
+  
+                    <tr>
+  
+                      <th>ID</th>
+  
+                      <th>Name</th>
+  
+                        <th>Gender</th>
+  
+            <th>Email</th>
+  
+            <th>UserRole</th>
+  
+            <th>Delete</th>
+  
+            <th>Update</th>
+  
+            <th>View Details</th>
+        </tr>
+
+        <tr *ngFor="let usr1 of admin|async">
+
+          <td>{{usr1.id}}</td>
+
+          <td>{{usr1.name}}</td>
+
+          <td>{{usr1.gender}}</td>
+
+          <td>{{usr1.email}}</td>
+
+          <td>{{usr1.userRole}}</td>
+
+          <td><button (click)="deleteAdmin(usr1.id)">Delete</button></td>
+
+          <td><button (click)="updateAdmin(usr1.id)">Update</button></td>
+
+          <td><button (click)="detailsAdmin(usr1.id)">Details</button></td>
+
+        </tr>
+
+      </table>
+
+      &nbsp;<br>
+
+     
+      <button class="btn" style="background-color: coral;" type="menu" (click)="goHome()">Go Back</button>
+
+     
+      <br><br>
+
+    </div> 
+                    </body>
+      
